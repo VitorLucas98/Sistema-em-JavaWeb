@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b3c8f46-094d-416b-b71e-d2c217d9a255">
+	<property name="ireport.zoom" value="1.9487171000000083"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#C0BA86">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E6E3CF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F8F8F3"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#C0BA86">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#E6E3CF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F8F8F3"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     garantiaservico.`idGarantiaServico` AS garantiaservico_idGarantiaServico,
+     garantiaservico.`dataAbertura` AS garantiaservico_dataAbertura,
+     garantiaservico.`observacao` AS garantiaservico_observacao,
+     garantiaservico.`diasGarantia` AS garantiaservico_diasGarantia,
+     garantiaservico.`idServico` AS garantiaservico_idServico,
+     servico.`idServico` AS servico_idServico,
+     servico.`nome` AS servico_nome,
+     servico.`descricao` AS servico_descricao,
+     servico.`valor` AS servico_valor
+FROM
+     `servico` servico INNER JOIN `garantiaservico` garantiaservico ON servico.`idServico` = garantiaservico.`idServico`]]>
+	</queryString>
+	<field name="garantiaservico_idGarantiaServico" class="java.lang.Integer"/>
+	<field name="garantiaservico_dataAbertura" class="java.sql.Date"/>
+	<field name="garantiaservico_observacao" class="java.lang.String"/>
+	<field name="garantiaservico_diasGarantia" class="java.lang.Integer"/>
+	<field name="garantiaservico_idServico" class="java.lang.Integer"/>
+	<field name="servico_idServico" class="java.lang.Integer"/>
+	<field name="servico_nome" class="java.lang.String"/>
+	<field name="servico_descricao" class="java.lang.String"/>
+	<field name="servico_valor" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement x="291" y="13" width="261" height="91" uuid="d7e880e6-9237-40ec-b7ec-bdcce8dd64cf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="24"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE GARANTIAS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="7" y="9" width="309" height="108" uuid="ce448275-a84f-4318-9a97-4b254563b0d0"/>
+				<imageExpression><![CDATA["C:\\Users\\Vítor Lucas\\Documents\\NetBeansProjects\\final\\web\\imagens\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<frame>
+				<reportElement style="table_TH" positionType="Float" x="0" y="0" width="555" height="30" backcolor="#CCCCCC" uuid="73fcd628-4f0f-4d48-828e-9771757b7575"/>
+				<staticText>
+					<reportElement x="102" y="5" width="65" height="20" uuid="4adadbf0-ebba-41f0-8141-bd18300f497c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ABERTURA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="229" y="5" width="52" height="20" uuid="6db05e83-7330-4b53-8cdf-7de0996b9492"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[SERVIÇO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="444" y="0" width="92" height="30" uuid="638df788-f241-4ec2-873e-7b030e36aa9c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[DIAS DE GARANTIA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="344" y="5" width="66" height="20" uuid="0acf4b67-ad48-4413-83b0-bce2ee548a0b"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[DESCRIÇÃO]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="20" y="5" width="24" height="20" uuid="41c13de9-2d07-4717-b0c4-54c643273982"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48">
+			<textField>
+				<reportElement x="10" y="7" width="46" height="34" uuid="20321b1c-ba84-4381-bf66-eda85a6c90a0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{garantiaservico_idGarantiaServico}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="85" y="7" width="100" height="34" uuid="8dd4201f-38e6-47df-a977-5829517df570"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{garantiaservico_dataAbertura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="7" width="82" height="34" uuid="f781789f-8be4-4f44-8487-f37e58161b6a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{garantiaservico_diasGarantia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="7" width="100" height="34" uuid="4bc24823-17fd-4c8b-ab06-f0dbf40cfd28"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{servico_descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="7" width="100" height="34" uuid="00d2a4e5-3a83-4f6a-a3a6-08ae42865429"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{servico_nome}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="41" width="550" height="1" uuid="54beb042-d187-4476-9164-39549fea2b1b"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="25" width="80" height="20" uuid="67814187-5c6d-4c8a-9616-a7550c0d82b0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="80" y="25" width="40" height="20" uuid="ebe799d6-f11c-4aeb-ab5e-1b51ebaa3a20"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="455" y="25" width="100" height="20" uuid="23bc8478-70ac-4ac5-a33c-d31f7746b1e5"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

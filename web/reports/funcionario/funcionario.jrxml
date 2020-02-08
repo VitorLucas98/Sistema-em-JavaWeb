@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b3c8f46-094d-416b-b71e-d2c217d9a255">
+	<property name="ireport.zoom" value="1.3310000000000044"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#C0BA86">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E6E3CF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F8F8F3"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#C0BA86">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#E6E3CF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F8F8F3"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="funcionario" uuid="4f35903d-7c08-4f35-b4ff-fcb011f03ef4">
+		<queryString>
+			<![CDATA[SELECT
+     *,
+     funcionario.`idFuncionario` AS funcionario_idFuncionario,
+     funcionario.`nome` AS funcionario_nome,
+     funcionario.`telefone` AS funcionario_telefone,
+     funcionario.`endereco` AS funcionario_endereco,
+     funcionario.`cpf` AS funcionario_cpf
+FROM
+     `funcionario` funcionario]]>
+		</queryString>
+		<field name="funcionario_nome" class="java.lang.String"/>
+		<field name="funcionario_cpf" class="java.lang.String"/>
+		<field name="funcionario_telefone" class="java.lang.String"/>
+		<field name="funcionario_endereco" class="java.lang.String"/>
+		<group name="funcionario_nome">
+			<groupExpression><![CDATA[$F{funcionario_nome}]]></groupExpression>
+		</group>
+		<group name="funcionario_cpf">
+			<groupExpression><![CDATA[$F{funcionario_cpf}]]></groupExpression>
+		</group>
+		<group name="funcionario_telefone">
+			<groupExpression><![CDATA[$F{funcionario_telefone}]]></groupExpression>
+		</group>
+		<group name="funcionario_endereco">
+			<groupExpression><![CDATA[$F{funcionario_endereco}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT
+     *,
+     funcionario.`idFuncionario` AS funcionario_idFuncionario,
+     funcionario.`nome` AS funcionario_nome,
+     funcionario.`telefone` AS funcionario_telefone,
+     funcionario.`endereco` AS funcionario_endereco,
+     funcionario.`cpf` AS funcionario_cpf
+FROM
+     `funcionario` funcionario]]>
+	</queryString>
+	<field name="idFuncionario" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="endereco" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="funcionario_idFuncionario" class="java.lang.Integer"/>
+	<field name="funcionario_nome" class="java.lang.String"/>
+	<field name="funcionario_telefone" class="java.lang.String"/>
+	<field name="funcionario_endereco" class="java.lang.String"/>
+	<field name="funcionario_cpf" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement x="304" y="26" width="236" height="65" uuid="d7e880e6-9237-40ec-b7ec-bdcce8dd64cf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="24"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE FUNCIONÁRIOS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="319" height="117" uuid="0276c56b-134d-448b-aa20-22b505a8b0b8"/>
+				<imageExpression><![CDATA["C:\\Users\\Vítor Lucas\\Documents\\NetBeansProjects\\final\\web\\imagens\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement style="table_TH" positionType="Float" x="0" y="0" width="555" height="20" backcolor="#CCCCCC" uuid="73fcd628-4f0f-4d48-828e-9771757b7575"/>
+			</frame>
+			<staticText>
+				<reportElement x="5" y="1" width="35" height="20" uuid="41c13de9-2d07-4717-b0c4-54c643273982"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="1" width="36" height="20" uuid="41bcd56c-c9f6-42c7-abef-c03af3a9ef10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="0" width="60" height="20" uuid="ada82619-9369-43cc-9f4b-7fb8aa748e29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="0" width="25" height="20" uuid="10cf9e3c-26d2-48b1-b6b0-bf9b831fbdfc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="0" width="60" height="20" uuid="0c1bdff7-59ad-4872-9dd8-96605cfea85e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENDEREÇO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="49">
+			<textField>
+				<reportElement x="16" y="3" width="46" height="35" uuid="8f217fc5-b3f9-460a-ad2a-35576dc4465b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idFuncionario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="3" width="123" height="36" uuid="edc29771-454e-42db-8f55-5665fa9c3465"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="3" width="100" height="36" uuid="eddb8685-65ca-4de6-90bf-32fe7d7b1afe"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="214" y="2" width="75" height="36" uuid="0868b079-9a84-465b-8a51-d3166a3d72ed"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="3" width="119" height="36" uuid="ef411576-0510-459f-85ec-b885caac0aeb"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="39" width="555" height="1" uuid="21df6b59-7f85-4222-b54f-bce70e585212"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="25" width="80" height="20" uuid="67814187-5c6d-4c8a-9616-a7550c0d82b0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="80" y="25" width="40" height="20" uuid="ebe799d6-f11c-4aeb-ab5e-1b51ebaa3a20"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="455" y="25" width="100" height="20" uuid="23bc8478-70ac-4ac5-a33c-d31f7746b1e5"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

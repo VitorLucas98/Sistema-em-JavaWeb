@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ordemservico" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="83520cd3-0df3-4bf9-9cd9-c2b1d7bd6f3c">
+	<property name="ireport.zoom" value="1.1000000000000107"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idNumero" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     garantiaservico.`idGarantiaServico` AS garantiaservico_idGarantiaServico,
+     garantiaservico.`dataAbertura` AS garantiaservico_dataAbertura,
+     garantiaservico.`observacao` AS garantiaservico_observacao,
+     garantiaservico.`diasGarantia` AS garantiaservico_diasGarantia,
+     garantiaservico.`idServico` AS garantiaservico_idServico,
+     servico.`idServico` AS servico_idServico,
+     servico.`nome` AS servico_nome,
+     servico.`descricao` AS servico_descricao,
+     servico.`valor` AS servico_valor
+FROM
+     `servico` servico INNER JOIN `garantiaservico` garantiaservico ON servico.`idServico` = garantiaservico.`idServico`
+
+WHERE
+     idGarantiaServico = $P!{idNumero}]]>
+	</queryString>
+	<field name="garantiaservico_idGarantiaServico" class="java.lang.Integer"/>
+	<field name="garantiaservico_dataAbertura" class="java.sql.Date"/>
+	<field name="garantiaservico_observacao" class="java.lang.String"/>
+	<field name="garantiaservico_diasGarantia" class="java.lang.Integer"/>
+	<field name="garantiaservico_idServico" class="java.lang.Integer"/>
+	<field name="servico_idServico" class="java.lang.Integer"/>
+	<field name="servico_nome" class="java.lang.String"/>
+	<field name="servico_descricao" class="java.lang.String"/>
+	<field name="servico_valor" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement x="426" y="78" width="37" height="20" uuid="988397bf-313e-4f5e-8dce-bbed349626b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="-5" width="307" height="48" uuid="80661602-fdb5-4102-90fc-ed6c4c94366a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Capital Notebook]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="159" y="35" width="241" height="19" uuid="de25c71c-51ed-4cc5-bea5-e4aae10e95b0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MANUTENÇÃO DE NOTEBOOKS EM GERAL
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="47" width="153" height="20" uuid="9b5f7d03-e065-4b43-8401-1f56d1f321da"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Venda de peças e acessórios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="152" y="79" width="245" height="19" uuid="ce48e86b-77e7-410e-88a2-7efa8d3a51af"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Conjunto A - Loja 71 - SIA/SUL Tr 07 - Brasília/DF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="58" width="111" height="23" uuid="a1b3189e-bb8d-4b61-8334-017b6a8399f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(61) 3573-4112]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="15" width="100" height="20" uuid="c6067156-abe1-448b-92f7-c23e6ce09c61"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº Garantia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="438" y="36" width="100" height="33" uuid="32d16071-66e5-4fa0-9fe0-380035741126"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{garantiaservico_idGarantiaServico}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="3" y="0" width="145" height="104" uuid="848b5497-1a19-460d-b8d3-754adcab994a"/>
+				<imageExpression><![CDATA["C:\\Users\\Vítor Lucas\\Documents\\NetBeansProjects\\final\\web\\imagens\\c.png"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="464" y="78" width="90" height="20" uuid="da6887f7-c30e-45fa-8ac6-811b6c47db22"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{garantiaservico_dataAbertura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" backcolor="#BDC5DC" uuid="0c0b0098-2b53-41fe-b078-101437dc656c"/>
+				<staticText>
+					<reportElement x="227" y="0" width="100" height="20" uuid="7e11b427-7052-474e-abb4-6b3744daae18"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CLIENTE]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="68" splitType="Stretch">
+			<line>
+				<reportElement x="420" y="-124" width="1" height="104" uuid="c08cd8b1-c919-44b3-b2f4-54fec78769d9"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="7" width="381" height="38" uuid="0eb6eacf-4b6a-48df-93c3-45d4d6915624"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME:__________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="28" width="347" height="40" uuid="15fe15f7-22d9-445a-8e55-18719dea92c0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF/CNPJ:_______________________________________]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="219" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-2" y="87" width="556" height="20" backcolor="#BDC5DC" uuid="a413ba88-efb7-4a3b-a2d3-90a671c2ba44"/>
+				<staticText>
+					<reportElement x="219" y="0" width="122" height="20" uuid="595b7126-512a-40de-88fc-aee94e731b3a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[OBSERVAÇÕES]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" backcolor="#BDC5DC" uuid="9eb2f470-d83d-4274-a675-09fae0fbaa8d"/>
+				<staticText>
+					<reportElement x="217" y="0" width="100" height="20" uuid="4857d4e3-f8b0-4d42-80af-f8a543717e27"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DESCRIÇÃO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="438" y="0" width="59" height="20" uuid="36f3a07b-7f27-48e9-bd82-7e27dabf4f6a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[VALOR]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="23" y="0" width="100" height="20" uuid="af564d90-a71d-48bb-bf11-3e3a33ed2958"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVIÇO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="107" width="555" height="107" uuid="baeaa0ea-25d8-4e14-966c-dac198a861e3"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{garantiaservico_observacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="37" width="100" height="20" uuid="99df38de-198a-49a1-ab96-e03d05f04f28"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{servico_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="37" width="132" height="20" uuid="e10d80d4-58de-4507-a9cf-ea591e03e1a5"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{servico_descricao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="438" y="37" width="100" height="20" uuid="652651b6-7bdd-4928-9239-041503fae51d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{servico_valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="227" splitType="Stretch">
+			<staticText>
+				<reportElement x="-2" y="0" width="555" height="220" uuid="78bb7dab-ea2e-4886-aca6-93b6bd1a751a"/>
+				<box leftPadding="10" rightPadding="10"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cláusulas:
+
+1. (empresa), inscrita no CNPJ nº (informar), assegura ao cliente acima identificado conta com a garantia sobre o produto/serviço acima descrito, contada a partir da data de emissão desse certificado.
+
+2. A garantia cobre somente os defeitos de funcionamento das peças e componentes dos equipamentos descritos nas condições normais de uso – de acordo com as instruções dos manuais de operação que acompanham os mesmos, e que são fornecidos pelos fabricantes.
+
+3. A garantia ficará automaticamente cancelada se os equipamentos vierem a sofrer reparos por pessoas não autorizadas, receber maus tratos ou sofrer danos decorrentes de acidentes, quedas, variações de tensão elétrica e sobrecarga acima do especificado, ou qualquer ocorrência imprevisível, decorrentes de má utilização dos equipamentos por parte do usuário.]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement x="310" y="33" width="243" height="31" uuid="82f2cb38-0ba5-41dd-9c79-94826bcefe41"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente: ________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="33" width="255" height="33" uuid="c0bf2c0a-7f3e-4f17-ac84-8a246fa48007"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vendedor:__________________________________]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="3" y="83" width="80" height="20" uuid="fe6d4d99-cff2-4907-9da8-0ec1dfb0c084"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="83" y="83" width="40" height="20" uuid="caab03bf-5089-4e19-b1de-4189042996e9"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="454" y="83" width="100" height="20" uuid="6b7ccf6b-9967-44af-b1a1-f3766d2ccf79"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

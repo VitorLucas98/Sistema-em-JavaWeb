@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b3c8f46-094d-416b-b71e-d2c217d9a255">
+	<property name="ireport.zoom" value="1.6105100000000068"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#C0BA86">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E6E3CF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F8F8F3"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#C0BA86">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#E6E3CF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F8F8F3"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+    ordemservico.`idNumero` AS ordemservico_idNumero,
+     ordemservico.`dataAbertura` AS ordemservico_dataAbertura,
+     ordemservico.`dataFechamento` AS ordemservico_dataFechamento,
+     ordemservico.`observacao` AS ordemservico_observacao,
+     ordemservico.`equipamento` AS ordemservico_equipamento,
+     ordemservico.`carregador` AS ordemservico_carregador,
+     ordemservico.`bateria` AS ordemservico_bateria,
+     ordemservico.`status` AS ordemservico_status,
+     ordemservico.`defeito` AS ordemservico_defeito,
+     ordemservico.`numeroSerie` AS ordemservico_numeroSerie,
+     ordemservico.`idCliente` AS ordemservico_idCliente,
+     ordemservico.`idUsuario` AS ordemservico_idUsuario,
+     cliente.`cpf_cnpj` AS cliente_cpf_cnpj,
+     cliente.`nome` AS cliente_nome
+FROM
+     `cliente` cliente INNER JOIN `ordemservico` ordemservico ON cliente.`idCliente` = ordemservico.`idCliente`]]>
+	</queryString>
+	<field name="ordemservico_idNumero" class="java.lang.Integer"/>
+	<field name="ordemservico_dataAbertura" class="java.sql.Date"/>
+	<field name="ordemservico_dataFechamento" class="java.sql.Date"/>
+	<field name="ordemservico_observacao" class="java.lang.String"/>
+	<field name="ordemservico_equipamento" class="java.lang.String"/>
+	<field name="ordemservico_carregador" class="java.lang.String"/>
+	<field name="ordemservico_bateria" class="java.lang.String"/>
+	<field name="ordemservico_status" class="java.lang.String"/>
+	<field name="ordemservico_defeito" class="java.lang.String"/>
+	<field name="ordemservico_numeroSerie" class="java.lang.String"/>
+	<field name="ordemservico_idCliente" class="java.lang.Integer"/>
+	<field name="ordemservico_idUsuario" class="java.lang.Integer"/>
+	<field name="cliente_cpf_cnpj" class="java.lang.String"/>
+	<field name="cliente_nome" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement x="291" y="26" width="261" height="68" uuid="d7e880e6-9237-40ec-b7ec-bdcce8dd64cf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="24"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE ORDENS DE SERVIÇO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="7" width="279" height="110" uuid="c55a4acb-6641-4abe-9a1d-53a548fa0888"/>
+				<imageExpression><![CDATA["C:\\Users\\Vítor Lucas\\Documents\\NetBeansProjects\\final\\web\\imagens\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<frame>
+				<reportElement style="table_TH" positionType="Float" x="0" y="0" width="555" height="30" backcolor="#CCCCCC" uuid="73fcd628-4f0f-4d48-828e-9771757b7575"/>
+				<staticText>
+					<reportElement x="55" y="10" width="100" height="20" uuid="4adadbf0-ebba-41f0-8141-bd18300f497c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[NOME]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="179" y="10" width="100" height="20" uuid="6db05e83-7330-4b53-8cdf-7de0996b9492"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[EQUIPAMENTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="310" y="10" width="50" height="20" uuid="638df788-f241-4ec2-873e-7b030e36aa9c"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[DEFEITO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="442" y="10" width="47" height="20" uuid="0acf4b67-ad48-4413-83b0-bce2ee548a0b"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[STATUS]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="10" width="24" height="20" uuid="41c13de9-2d07-4717-b0c4-54c643273982"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="56">
+			<textField>
+				<reportElement x="7" y="9" width="48" height="41" uuid="2ecb6856-ad7a-4993-95e2-94bf01d44341"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ordemservico_idNumero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="9" width="114" height="41" uuid="f3b267e8-6c82-4fee-8117-9ea6692e146a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cliente_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="9" width="100" height="41" uuid="e07f8b19-6af0-42b0-a9b5-4043f2006ca8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ordemservico_equipamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="9" width="100" height="41" uuid="cbcef27d-9ba5-48d9-962a-4881f4df6fd5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ordemservico_status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="9" width="100" height="41" uuid="8cd5f0bd-980d-4d0f-889e-f9209b053ec4"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ordemservico_defeito}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="53" width="555" height="1" uuid="01817af5-8970-4b15-8c38-50a162e74fe0"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="25" width="80" height="20" uuid="67814187-5c6d-4c8a-9616-a7550c0d82b0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="80" y="25" width="40" height="20" uuid="ebe799d6-f11c-4aeb-ab5e-1b51ebaa3a20"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="455" y="25" width="100" height="20" uuid="23bc8478-70ac-4ac5-a33c-d31f7746b1e5"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
